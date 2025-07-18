@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block body %}
 <!DOCTYPE html>
@@ -12,70 +12,146 @@
     <!-- <link rel="stylesheet" href="/style.css"> -->
     <title> E-COMMERCE WEBSITE BY EDYODA | CREATED BY PRIYANKA SHARMA </title>
     <!-- favicon -->
-    <link rel="icon" href="https://yt3.ggpht.com/a/AGF-l78km1YyNXmF0r3-0CycCA0HLA_i6zYn_8NZEg=s900-c-k-c0xffffffff-no-rj-mo" type="image/gif" sizes="16x16">
-    <!-- header links -->
-    <script src="https://kit.fontawesome.com/4a3b1f73a2.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    
     <!-- slider links -->
     <!-- <script src="http://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
-    <script src="js/jQuery3.4.1.js"></script>
+    <script src="{{ asset('js/jQuery3.4.1.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('css/content.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    <style>
+        body
+        {
+            margin: 0;
+        }
+        #containerSlider
+        {
+            margin: auto;
+            width: 90%;
+            text-align: center;
+            padding-top: 100px;
+            box-sizing: border-box;
+        }
+        #containerSlider img
+        {
+            width: 100%;
+            height: 140%;
+            text-align: center;
+            align-content: center;
+        }
+        @media(max-width: 732px)
+        {
+            #containerSlider img
+            {
+                height: 12em;
+            }
+        }
+        @media(max-width: 500px)
+        {
+            #containerSlider img
+            {
+                height: 10em;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <!-- HEADER -->
-    <div id="1"></div>
-    <script>
-        load("header.html");
-        function load(url)
-        {
-            req = new XMLHttpRequest();
-            req.open("GET", url, false);
-            req.send(null);
-            document.getElementById(1).innerHTML = req.responseText;
-        }
-    </script>
+    <header>
+        <section>
+            <!-- MAIN CONTAINER -->
+            <div id="container">
+                <!-- SHOP NAME -->
+                <div id="shopName"><a href="index.html"> <b>SHOP</b>LANE </a></div>
+                    <!-- COLLCETIONS ON WEBSITE -->
+                    <div id="collection">
+                        <div id="clothing"><a href="clothing.html"> CLOTHING </a></div>
+                        <div id="accessories"><a href="accessories.html"> ACCESSORIES </a></div>
+                    </div>
+                    <!-- SEARCH SECTION -->
+                    <div id="search">
+                        <i class="fas fa-search search"></i>
+                        <input type="text" id="input" name="searchBox" placeholder="Search for Clothing and Accessories">
+                    </div>
+                    <!-- USER SECTION (CART AND USER ICON) -->
+                    <div id="user">
+                        <a href="cart.html"> <i class="fas fa-shopping-cart addedToCart"><div id="badge"> 0 </div></i></a>
+                        <a href="#"> <i class="fas fa-user-circle userIcon"></i> </a>
+                    </div>
+            </div>
+
+        </section>
+    </header>
     <!-- SLIDER -->
-    <div id="2"></div>
-    <script>
-        load("slider.html");
-        function load(url)
-        {
-            req = new XMLHttpRequest();
-            req.open("GET", url, false);
-            req.send(null);
-            document.getElementById(2).innerHTML = req.responseText;
-        }
-    </script>
+    <div id="3"></div>
+    <section>
+            <div id="containerSlider">
+                <div id="slidingImage"> <img src="img/img1.png" alt="image1"> </div>
+                <div id="slidingImage"> <img src="img/img2.png" alt="image2"> </div>
+                <div id="slidingImage"> <img src="img/img3.png" alt="image3"> </div>
+                <div id="slidingImage"> <img src="img/img4.png" alt="image4"> </div>
+            </div>
+    </section>
 
     <!-- CONTENT SECTION -->
     <div id="3"></div>
-    <script>
-        load("content.html");
-        function load(url)
-        {
-            req = new XMLHttpRequest();
-            req.open("GET", url, false);
-            req.send(null);
-            document.getElementById(3).innerHTML = req.responseText;
-        }
-    </script>
+    <div id="mainContainer">
+
+        <h1> clothing for men and women </h1>
+        <div id="containerClothing">
+            <!-- JS rendered code -->
+        </div>
+
+        <h1> accessories for men and women </h1>
+        <div id="containerAccessories">
+            <!-- JS rendered code -->
+        </div>
+    </div>
 
     <!-- FOOTER -->
     <div id="4"></div>
-    <script>
-        load("footer.html");
-        function load(url)
-        {
-            req = new XMLHttpRequest();
-            req.open("GET", url, false);
-            req.send(null);
-            document.getElementById(4).innerHTML = req.responseText;
-        }
-    </script>
+    <footer>
+        <section>    
+            <div id="containerFooter">
+                
+                <div id="webFooter">
+                    <h3> online store </h3>
+                    <p> men clothing </p>
+                    <p> women clothing </p>
+                    <p> men accessories </p>
+                    <p> women accessories </p>
+                </div>
+                <div id="webFooter">
+                    <h3> helpful link </h3>
+                    <p> home </p>
+                    <p> about </p>
+                    <p> contact </p>
+                </div>
+                <div id="webFooter">
+                    <h3> partners </h3>
+                    <p> zara </p>
+                    <p> pantaloons </p>
+                    <p> levis </p>
+                    <p> ucb </p>
+                    <p> + many more </p>
+                </div>
+                <div id="webFooter">
+                    <h3> address </h3>
+                    <p> building 101 </p>
+                    <p> central avenue </p>
+                    <p> la - 902722 </p>
+                    <p> united states </p>
+                </div>
+            </div>
+            <div id="credit"><a href="https://linkedin.com/in/priyanka-sharma-b79401142"> © Priyanka Sharma </a> &nbsp&nbsp&nbsp | &nbsp&nbsp&nbsp <a href="https://www.edyoda.com/" target="_blank"> EDYODA </a></div>
+        </section>
 
-</body>
+    </footer>
+
+
 
 <!-- slider JS START -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
@@ -95,7 +171,21 @@
 <!-- slider JS ENDS -->
 
 <!-- content JS -->
-<script src="content.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+        $('#containerSlider').slick({
+            dots: true,
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            });
+        });
+    </script>
+<script src="{{ asset('js/content.js') }}"></script>
+</body>
 </html>
 {% endblock %}
