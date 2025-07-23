@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- <link rel="stylesheet" href="/style.css"> -->
-    <title> E-COMMERCE WEBSITE BY EDYODA | CREATED BY PRIYANKA SHARMA </title>
+    <title> E-COMMERCE </title>
     <!-- favicon -->
     
     <!-- slider links -->
@@ -18,8 +18,6 @@
     <script src="{{ asset('js/jQuery3.4.1.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('css/content.css') }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
     <style>
         body
@@ -65,12 +63,19 @@
             <!-- MAIN CONTAINER -->
             <div id="container">
                 <!-- SHOP NAME -->
-                <div id="shopName"><a href="index.html"> <b>SHOP</b>LANE </a></div>
+                <div id="shopName"><a href="index.html"> <b>QUINCAILLERIE </b>LANE </a></div>
                     <!-- COLLCETIONS ON WEBSITE -->
-                    <div id="collection">
-                        <div id="clothing"><a href="clothing.html"> CLOTHING </a></div>
-                        <div id="accessories"><a href="accessories.html"> ACCESSORIES </a></div>
-                    </div>
+                    <nav id="collection" style="display: flex; gap: 2rem; align-items: center; margin-left: 2rem;">
+                        <div id="clothing">
+                            <a href="clothing.html" style="text-decoration: none; color: inherit; font-weight: bold;">NOS SERVICES</a>
+                        </div>
+                        <div id="accessories">
+                            <a href="accessories.html" style="text-decoration: none; color: inherit; font-weight: bold;">ACCESSORIES</a>
+                        </div>
+                        <div id="entreprise">
+                            <a href="login" style="text-decoration: none; color: inherit; font-weight: bold;">Entreprise</a>
+                        </div>
+                    </nav>
                     <!-- SEARCH SECTION -->
                     <div id="search">
                         <i class="fas fa-search search"></i>
@@ -89,27 +94,24 @@
     <div id="3"></div>
     <section>
             <div id="containerSlider">
-                <div id="slidingImage"> <img src="img/img1.png" alt="image1"> </div>
-                <div id="slidingImage"> <img src="img/img2.png" alt="image2"> </div>
-                <div id="slidingImage"> <img src="img/img3.png" alt="image3"> </div>
-                <div id="slidingImage"> <img src="img/img4.png" alt="image4"> </div>
+                <div id="slidingImage">
+                    <img src="img/img1.png" alt="image1" style="width: 100%; height: 300px; object-fit: cover;">
+                </div>
+                <div id="slidingImage">
+                     <img src="img/img2.jpeg" alt="image2" style="width: 100%; height: 300px; object-fit: cover;">
+                </div>
+                <div id="slidingImage"> 
+                    <img src="img/img3.jpeg" alt="image3" style="width: 100%; height: 300px; object-fit: cover;"> 
+                </div>
+                <div id="slidingImage"> 
+                    <img src="img/img4.jpeg" alt="image4" style="width: 100%; height: 300px; object-fit: cover;"> 
+                </div>
             </div>
     </section>
 
     <!-- CONTENT SECTION -->
     <div id="3"></div>
-    <div id="mainContainer">
-
-        <h1> clothing for men and women </h1>
-        <div id="containerClothing">
-            <!-- JS rendered code -->
-        </div>
-
-        <h1> accessories for men and women </h1>
-        <div id="containerAccessories">
-            <!-- JS rendered code -->
-        </div>
-    </div>
+    {% include "produit/produit.html.twig" %}
 
     <!-- FOOTER -->
     <div id="4"></div>
@@ -146,7 +148,7 @@
                     <p> united states </p>
                 </div>
             </div>
-            <div id="credit"><a href="https://linkedin.com/in/priyanka-sharma-b79401142"> © Priyanka Sharma </a> &nbsp&nbsp&nbsp | &nbsp&nbsp&nbsp <a href="https://www.edyoda.com/" target="_blank"> EDYODA </a></div>
+            <div id="credit"><a href="https://linkedin.com/in/priyanka-sharma-b79401142"> © LANE </a> Production <a href="https://www.edyoda.com/" target="_blank"> EDYODA </a></div>
         </section>
 
     </footer>
