@@ -2,10 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
+use Doctrine\ORM\EntityManagerInterface;
+use Dom\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+
 
 class UserController extends AbstractController
 {
@@ -28,5 +32,14 @@ class UserController extends AbstractController
     public function logout(): void
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
+    }
+
+    #[Route(path: '/list', name: 'app_list')]
+    public function list(EntityManagerInterface $em): Response
+    {
+        $users = $em->getRepository(User::class)->findAll();
+        return $this->render('user/list.html.twig', [
+            'users' => $users,
+        ]);
     }
 }

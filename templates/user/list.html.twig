@@ -1,0 +1,82 @@
+{% extends "base.html.twig" %}
+{% block title %}User List{% endblock %}
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+</head>
+<body>
+<div class="container">
+<div class="row">
+	<div class="col-lg-12">
+        <h1 class="page-header">Liste des utilisateurs</h1>
+		<div class="main-box clearfix">
+			<div class="table-responsive">
+				<table class="table user-list">
+					<thead>
+						<tr>
+							<th><span>Utilisateur</span></th>
+							<th><span>Créé</span></th>
+							<th class="text-center"><span>Statut</span></th>
+							<th><span>Email</span></th>
+							<th>&nbsp;</th>
+						</tr>
+					</thead>
+					<tbody>
+                        {% for user in users %}
+                            <tr>
+                                <td>
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" style="width: 50px; height: 50px;">
+                                    <a href="#" class="user-link">{{ user.nom }} {{ user.prenom }}</a>
+                                    <span class="user-subhead">{{ user.roles|join(', ') }}</span>
+                                </td>
+                                <td>
+                                    2013/08/08
+                                </td>
+                                <td class="text-center">
+                                    <span class="label label-default">Inactive</span>
+                                </td>
+                                <td>
+                                    <a href="#">{{ user.email }}</a>
+                                </td>
+                                <td style="width: 20%;">
+                                    <a href="#" class="table-link">
+                                        <span class="fa-stack">
+                                            <i class="fa fa-square fa-stack-2x"></i>
+                                            <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                    <a href="#" class="table-link">
+                                        <span class="fa-stack">
+                                            <i class="fa fa-square fa-stack-2x"></i>
+                                            <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                    <a href="#" class="table-link danger">
+                                        <span class="fa-stack">
+                                            <i class="fa fa-square fa-stack-2x"></i>
+                                            <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+					</tbody>
+				</table>
+			</div>
+			<ul class="pagination pull-right">
+				<li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+				<li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+</div>
+</body>
+</html>
+{% endblock %}
