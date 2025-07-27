@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Login</title>
+
+</head>
+
+<body class="bg-gradient-primary">
+<section class="vh-100">
+  <div class="container-fluid h-custom">
+    <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-6 col-lg-6 col-xl-5">
+            <img src="{{ asset('img/img4.jpeg') }}" class="img-fluid" alt="Sample image" style="width: 100%; height: 300px; object-fit: cover;">
+        </div>
+        <div class="col-md-6 col-lg-6 col-xl-4 offset-xl-1">
+            <form method="post">
+                 {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+                {% if app.user %}
+                    <div class="mb-3">
+                        Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Déconnexion</a>
+                    </div>
+                {% endif %}
+                <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+                    <p class="lead fw-normal mb-0 me-3">Sign in with</p>
+                    <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-floating mx-1">
+                    <i class="fas fa-facebook-f"></i>
+                    </button>
+                    <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-floating mx-1">
+                    <i class="fas fa-twitter"></i>
+                    </button>
+                    <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-floating mx-1">
+                    <i class="fas fa-linkedin-in"></i>
+                    </button>
+                </div>
+                <div class="divider d-flex align-items-center my-4">
+                    <p class="text-center fw-bold mx-3 mb-0">Or</p>
+                </div>
+                <!-- Email input -->
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <label for="inputEmail">Email</label>
+                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+                    <label class="form-label" for="inputEmail">Email address</label>
+                </div>
+                <!-- Password input -->
+                <div data-mdb-input-init class="form-outline mb-3">
+                    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                    <label class="form-label" for="inputPassword">Password</label>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <!-- Checkbox -->
+                    <div class="form-check mb-0">
+                    <input type="hidden" name="_csrf_token"
+                                    value="{{ csrf_token('authenticate') }}"
+                                >
+                    </div>
+                    <a href="#!" class="text-body">Forgot password?</a>
+                </div>
+                <div class="text-center text-lg-start mt-4 pt-2">
+                    <button class="btn btn-lg btn-primary w-100" type="submit">
+                        Connexion
+                    </button>
+                    <p class="small fw-bold mt-2 pt-1 mb-0">Vous n'avez pas de compte ? <a href="register"
+                        class="link-danger">Inscrivez-vous</a></p>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+  <div
+    class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+    <!-- Copyright -->
+    <div class="text-white mb-3 mb-md-0 text-center text-md-start">
+      Production © {{ "now"|date("Y") }}. 
+    </div>
+    <!-- Copyright -->
+
+    <!-- Right -->
+    <div>
+      <a href="#!" class="text-white me-4">
+        <i class="fas fa-facebook-f"></i>
+      </a>
+      <a href="#!" class="text-white me-4">
+        <i class="fas fa-twitter"></i>
+      </a>
+      <a href="#!" class="text-white me-4">
+        <i class="fas fa-google"></i>
+      </a>
+      <a href="#!" class="text-white">
+        <i class="fas fa-linkedin-in"></i>
+      </a>
+    </div>
+    <!-- Right -->
+  </div>
+</section>
+
+</body>
+</html>  
+
+{% endblock %}
