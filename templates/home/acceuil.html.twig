@@ -4,190 +4,307 @@
 
 {% block body %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- <link rel="stylesheet" href="/style.css"> -->
-    <title> E-COMMERCE </title>
-    <!-- favicon -->
-    
-    <!-- slider links -->
-    <!-- <script src="http://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
-    <script src="{{ asset('js/jQuery3.4.1.js') }}"></script>
-    <link rel="stylesheet" href="{{ asset('css/content.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    <title>eBay - Avantages Exclusifs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body
-        {
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+            padding: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .email-container {
+            max-width: 700px;
+            background: white;
+            border-radius: 0px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header {
+            background: linear-gradient(to right, #0064d2, #0050a8);
+            color: white;
+            padding: 40px 30px;
+            position: relative;
+        }
+        
+        .ebay-logo {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .ebay-logo i {
+            color: #f5af02;
+            margin-right: 5px;
+        }
+        
+        .header-title {
+            font-size: 32px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+        
+        .header-subtitle {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            text-align: center;
+        }
+        
+        .btn-connect {
+            background: white;
+            color: #0064d2;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            min-width: 180px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-connect:hover {
+            background: #f8f9fa;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-choose {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            min-width: 180px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-choose:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+        }
+        
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5), transparent);
+            margin: 35px 0;
+        }
+        
+        .services-title {
+            text-align: center;
+            color: #2d3748;
+            margin-bottom: 25px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 28px;
+            color: #0064d2;
+            margin-bottom: 12px;
+        }
+        
+        .service-title {
+            font-size: 15px;
+            color: #2d3748;
+            font-weight: 600;
             margin: 0;
         }
-        #containerSlider
-        {
-            margin: auto;
-            width: 90%;
-            text-align: center;
-            padding-top: 100px;
-            box-sizing: border-box;
+        
+        .services-section {
+            padding: 30px;
+            background: #f8f9fa;
         }
-        #containerSlider img
-        {
-            width: 100%;
-            height: 140%;
-            text-align: center;
-            align-content: center;
+        
+        .footer {
+            background: #2d3748;
+            color: #a0aec0;
+            padding: 25px 30px;
         }
-        @media(max-width: 732px)
-        {
-            #containerSlider img
-            {
-                height: 12em;
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .footer-links a {
+            color: #e2e8f0;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 13px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 30px 20px;
             }
-        }
-        @media(max-width: 500px)
-        {
-            #containerSlider img
-            {
-                height: 10em;
+            
+            .header-title {
+                font-size: 28px;
+            }
+            
+            .header-subtitle {
+                font-size: 16px;
+            }
+            
+            .ebay-logo {
+                position: static;
+                margin-bottom: 15px;
+                display: block;
+                text-align: center;
+            }
+            
+            .btn-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn-connect, .btn-choose {
+                width: 100%;
             }
         }
     </style>
 </head>
-
 <body>
-    <!-- HEADER -->
-    <header>
-        <section>
-            <!-- MAIN CONTAINER -->
-            <div id="container">
-                <!-- SHOP NAME -->
-                <div id="shopName"><a href="#"> <h4>AB COMPTA V <sup>2</sup></h4> </a></div>
-                    <!-- COLLCETIONS ON WEBSITE -->
-                    <nav id="collection" style="display: flex; gap: 2rem; align-items: center; margin-left: 2rem;">
-                        <div id="clothing">
-                            <a href="#" style="text-decoration: none; color: inherit; font-weight: bold;">NOS SERVICES</a>
-                        </div>
-                        <div id="accessories">
-                            <a href="#" style="text-decoration: none; color: inherit; font-weight: bold;">ACCESSORIES</a>
-                        </div>
-                        <div id="entreprise">
-                            <a href="login" style="text-decoration: none; color: inherit; font-weight: bold;">ENTRPRISE</a>
-                        </div>
-                    </nav>
-                    <!-- SEARCH SECTION -->
-                    <div id="search">
-                        <i class="fas fa-search search"></i>
-                        <input type="text" id="input" name="searchBox" placeholder="Search for Clothing and Accessories">
-                    </div>
-                    <!-- USER SECTION (CART AND USER ICON) -->
-                    <div id="user">
-                        <a href="#"> <i class="fas fa-shopping-cart addedToCart"><div id="badge"> 0 </div></i></a>
-                        <a href="#"> <i class="fas fa-user-circle userIcon"></i> </a>
-                    </div>
+    <div class="">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="ebay-logo">
+                <i class="fab fa-spin"></i> AB-COMPTA v2
             </div>
-
-        </section>
-    </header>
-    <!-- SLIDER -->
-    <div id="3"></div>
-    <section>
-            <div id="containerSlider">
-                <div id="slidingImage">
-                    <img src="img/img1.png" alt="image1" style="width: 100%; height: 300px; object-fit: cover;">
-                </div>
-                <div id="slidingImage">
-                     <img src="img/img2.jpeg" alt="image2" style="width: 100%; height: 300px; object-fit: cover;">
-                </div>
-                <div id="slidingImage"> 
-                    <img src="img/img3.jpeg" alt="image3" style="width: 100%; height: 300px; object-fit: cover;"> 
-                </div>
-                <div id="slidingImage"> 
-                    <img src="img/img4.jpeg" alt="image4" style="width: 100%; height: 300px; object-fit: cover;"> 
+            
+            <div class="d-flex flex-column align-items-center">
+                <h1 class="header-title">Profitez d'avantages exclusifs</h1>
+                <div class="d-flex gap-3 btn-container">
+                    <a href="login" class="btn btn-connect">Se connecter</a>
                 </div>
             </div>
-    </section>
-
-    <!-- CONTENT SECTION -->
-    <div id="3"></div>
-    {# {% include "produit/produit.html.twig" %} #}
-
-    <!-- FOOTER -->
-    <div id="4"></div>
-    <footer>
-        <section>    
-            <div id="containerFooter">
+            
+            <h2 class="services-title">Découvrez nos Produit</h2>
+        </div>
+        
+        <!-- Services Section -->
+        <div class="services-section">
+            <div class="row g-3">
+                <div class="col-6 col-md-3">
+                    <div class="service-card">
+                        <i class="fas fa-shield-alt service-icon"></i>
+                        <h3 class="service-title">Protection Acheteur</h3>
+                    </div>
+                </div>
                 
-                <div id="webFooter">
-                    <h3> online store </h3>
-                    <p> men clothing </p>
-                    <p> women clothing </p>
-                    <p> men accessories </p>
-                    <p> women accessories </p>
+                <div class="col-6 col-md-3">
+                    <div class="service-card">
+                        <i class="fas fa-tag service-icon"></i>
+                        <h3 class="service-title">Vendre</h3>
+                    </div>
                 </div>
-                <div id="webFooter">
-                    <h3> helpful link </h3>
-                    <p> home </p>
-                    <p> about </p>
-                    <p> contact </p>
+                
+                <div class="col-6 col-md-3">
+                    <div class="service-card">
+                        <i class="fas fa-sync-alt service-icon"></i>
+                        <h3 class="service-title">Reconditionné</h3>
+                    </div>
                 </div>
-                <div id="webFooter">
-                    <h3> partners </h3>
-                    <p> zara </p>
-                    <p> pantaloons </p>
-                    <p> levis </p>
-                    <p> ucb </p>
-                    <p> + many more </p>
+                
+                <div class="col-6 col-md-3">
+                    <div class="service-card">
+                        <i class="fas fa-history service-icon"></i>
+                        <h3 class="service-title">Seconde main</h3>
+                    </div>
                 </div>
-                <div id="webFooter">
-                    <h3> address </h3>
-                    <p> building 101 </p>
-                    <p> central avenue </p>
-                    <p> la - 902722 </p>
-                    <p> united states </p>
+                
+                <div class="col-6 col-md-3">
+                    <div class="service-card">
+                        <i class="fas fa-tools service-icon"></i>
+                        <h3 class="service-title">eBay réparation</h3>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-3">
+                    <div class="service-card">
+                        <i class="fas fa-recycle service-icon"></i>
+                        <h3 class="service-title">eBay rachat</h3>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-3">
+                    <div class="service-card">
+                        <i class="fas fa-calculator service-icon"></i>
+                        <h3 class="service-title">Estimer gratuitement</h3>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-md-3">
+                    <div class="service-card">
+                        <i class="fas fa-gift service-icon"></i>
+                        <h3 class="service-title">Offres spéciales</h3>
+                    </div>
                 </div>
             </div>
-            <div id="credit"> ©  Production </div>
-        </section>
-
-    </footer>
-
-
-
-<!-- slider JS START -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-<script>
-    $(document).ready(function()
-    {
-    $('#containerSlider').slick({
-        dots: true,
-        infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 1500,
-        });
-    });
-</script>
-<!-- slider JS ENDS -->
-
-<!-- content JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-    <script>
-        $(document).ready(function()
-        {
-        $('#containerSlider').slick({
-            dots: true,
-            infinite: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 2000,
-            });
-        });
-    </script>
-<script src="{{ asset('js/content.js') }}"></script>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-links">
+                <a href="#">Aide</a>
+                <a href="#">Contact</a>
+                <a href="#">Frais</a>
+                <a href="#">Confidentialité</a>
+                <a href="#">Conditions d'utilisation</a>
+            </div>
+            <div class="copyright">
+                © {{ 'now' |date("Y") }} PRODUCTION.
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 {% endblock %}
