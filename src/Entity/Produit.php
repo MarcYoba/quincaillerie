@@ -59,6 +59,12 @@ class Produit
     #[ORM\ManyToOne(inversedBy: 'produits')]
     private ?Agence $agence = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $image = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $imagesize = null;
+
     public function __construct()
     {
         $this->achat = new ArrayCollection();
@@ -289,6 +295,30 @@ class Produit
     public function setAgence(?Agence $agence): static
     {
         $this->agence = $agence;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): static
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getImagesize(): ?string
+    {
+        return $this->imagesize;
+    }
+
+    public function setImagesize(string $imagesize): static
+    {
+        $this->imagesize = $imagesize;
 
         return $this;
     }
