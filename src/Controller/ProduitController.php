@@ -24,6 +24,25 @@ class ProduitController extends AbstractController
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) {
+
+             /** @var UploadedFile $file */
+            $file = $form->get('image')->getData();
+
+            if ($file) {
+                $fillesize = $file->getSize();
+                $filename = uniqid().'.'.$file->guessExtension();
+
+                $file->move(
+                    $this->getParameter('produits_upload_directory'), // Défini dans services.yaml
+                    $filename
+                );
+                $produit->setImage($filename);
+                $produit->setImagesize($fillesize);
+            }else{
+                $produit->setImage("pas d'image");
+                $produit->setImagesize(0);
+            }
+
             $produit->setPrixachat(0);
             $produit->setGain(0);
             $produit->setUser($security->getUser());

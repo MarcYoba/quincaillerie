@@ -6,6 +6,7 @@ use App\Entity\Agence;
 use App\Entity\TempAgence;
 use App\Entity\User;
 use App\Entity\Vente;
+use App\Entity\Produit;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,9 +15,15 @@ use Doctrine\ORM\EntityManagerInterface;
 class HomeController extends AbstractController
 {
     #[Route('/acceuil', name: 'app_acceuil')]
-    public function acceuil(): Response
+    public function acceuil(EntityManagerInterface $entityManager): Response
     {
-        return $this->render('home/acceuil.html.twig');
+        $user = $this->getUser();
+        $tempagence = $entityManager->getRepository(TempAgence::class)->findOneBy(['user' => $user]);
+        $agence = $tempagence->getAgence();
+        $produit = $entityManager->getRepository(Produit::class)->findBy(['agence' => $agence]);
+        return $this->render('home/acceuil.html.twig',[
+            'produits' => $produit
+        ]);
     }
     
     #[Route('/home', name: 'app_home')]
