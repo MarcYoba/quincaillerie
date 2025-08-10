@@ -17,10 +17,11 @@ class HomeController extends AbstractController
     #[Route('/acceuil', name: 'app_acceuil')]
     public function acceuil(EntityManagerInterface $entityManager): Response
     {
-        $user = $this->getUser();
-        $tempagence = $entityManager->getRepository(TempAgence::class)->findOneBy(['user' => $user]);
-        $agence = $tempagence->getAgence();
-        $produit = $entityManager->getRepository(Produit::class)->findBy(['agence' => $agence]);
+        //$user = $this->getUser();
+        //$tempagence = $entityManager->getRepository(TempAgence::class)->findOneBy(['user' => $user]);
+        //$agence = $tempagence->getAgence();
+        $produit = $entityManager->getRepository(Produit::class)->findAll();
+        
         return $this->render('home/acceuil.html.twig',[
             'produits' => $produit
         ]);
